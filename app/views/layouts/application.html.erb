@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Rails Project 65" %></title>
+    <title><%= content_for(:title) || t('layout.app_name') %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
@@ -19,6 +19,17 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'layouts/shared/nav' %>
+
+    <div class="container mt-5">
+      <%= yield %>
+    </div>
+
+    <footer class="footer mt-auto py-3 bg-light">
+    <div class="container">
+      <span class="text-muted">&copy; <%=t('layout.footer', year: Date.today.year)%></span>
+    </div>
+  </footer>
+
   </body>
 </html>

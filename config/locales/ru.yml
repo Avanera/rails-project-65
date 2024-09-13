@@ -1,0 +1,6 @@
+ru:
+  layout:
+    footer: "%{year} Доска объявлений"
+    nav:
+      home: Домой
+    app_name: Доска объявлений
