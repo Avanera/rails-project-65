@@ -2,7 +2,7 @@
 [![Actions Status](https://github.com/Avanera/rails-project-65/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Avanera/rails-project-65/actions)
 
 
-Deployed application link:
+Deployed application link: https://rails-project-65-kd03.onrender.com
 
 <!-- This is a . The project includes features such as . -->
 
@@ -24,13 +24,9 @@ Node.js and Yarn are required for managing frontend assets.
 git clone https://github.com/Avanera/rails-project-65.git
 cd rails-project-65
 ```
-2. Install required gems:
+2. Install required gems, install JavaScript dependencies:
 ```bash
-bundle install
-```
-3. Install JavaScript dependencies:
-```bash
-yarn install
+make setup
 ```
 
 ## Database Setup
@@ -73,7 +69,7 @@ make lint
 
 ## Deployment Instructions for Render
 
-Go to the [Render instance of the project](https://dashboard.render.com/web/srv-cq6b3gks1f4s73dvcua0).
+Go to the [Render instance of the project](https://dashboard.render.com/web/srv-crhomfrv2p9s73bdojo0).
 
 Click 'Manual Deploy' -> Select 'Deploy Latest Commit'
 
