@@ -4,6 +4,7 @@ start:
 setup:
 	install
 	db-prepare
+	copy-env
 
 install:
 	bin/setup
@@ -11,6 +12,9 @@ install:
 db-prepare:
 	bin/rails db:reset
 	bin/rails db:fixtures:load
+
+copy-env:
+	cp -n .env.example .env || true
 
 test:
 	bin/rails test
