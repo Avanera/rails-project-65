@@ -1,6 +1,10 @@
 ru:
+  app_name: Доска объявлений
+  auth:
+    github:
+      login: Войти с Github
+    logout: Выйти
   layout:
     footer: "%{year} Доска объявлений"
     nav:
       home: Домой
-    app_name: Доска объявлений
