@@ -1,6 +1,10 @@
 en:
+  app_name: Bulletin Board
+  auth:
+    github:
+      login: Log in with Github
+    logout: Log out
   layout:
     footer: "%{year} Bulletin Board"
     nav:
       home: Home
-    app_name: Bulletin Board
