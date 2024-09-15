@@ -8,6 +8,11 @@ module Web
       redirect_to root_path
     end
 
+    def logout
+      session[:user_id] = nil
+      redirect_to root_path
+    end
+
     private
 
     def auth
