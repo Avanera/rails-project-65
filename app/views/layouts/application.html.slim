@@ -18,12 +18,12 @@ html
     = Sentry.get_trace_propagation_meta.html_safe
   body
     = render 'layouts/shared/nav'
-    .container.my-4
+    .container.mt-4.pt-5
       = render 'layouts/shared/flash'
-    .container.mt-5
+    .container
       = yield
     footer.footer.mt-auto.py-3.bg-light
       .container
         span.text-muted
-          | © 
+          | ©
           =t('layout.footer', year: Date.today.year)
