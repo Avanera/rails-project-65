@@ -1,20 +1,29 @@
-.d-flex.flex-wrap.align-items-center.py-0.border-bottom
-  .navbar.navbar-expand-md.navbar-light.me-auto
-    a.navbar-brand.me-md-4[href="/"]
-      = t('layout.nav.home')
-    #navbarToggler.collapse.navbar-collapse
-      ul.nav.nav-pills.flex-grow-1.navbar-nav.me-auto
-        li.nav-item.me-2
-          = link_to t('layout.home'), root_path, class: "nav-link text-dark"
+nav class='container navbar navbar-expand-md d-flex py-2 border-bottom\
+  fixed-top justify-content-between bg-white'
+  a.navbar-brand.me-md-4[href="/"]
+    = t('layout.nav.home')
+
+  button.navbar-toggler [
+    type='button'
+    data-bs-toggle='collapse'
+    data-bs-target='#navbarSupportedContent'
+    aria-controls='navbarSupportedContent'
+    aria-expanded='false'
+    aria-label='Toggle navigation'
+  ]
+    span.navbar-toggler-icon
+  .collapse.navbar-collapse.justify-content-end id='navbarSupportedContent'
+    .d-flex
+      ul.nav
         - if user_signed_in?
-          li.nav-item.me-2
+          li.nav-link.disabled
             = current_user.email
-          li.nav-item.me-2
-            = button_to t('auth.log_out'), logout_path,
+          li.nav-item
+            = link_to t('auth.log_out'), logout_path,
               method: :delete,
-              class: 'nav-link link-dark'
+              class: 'btn'
         - else
-          li.nav-item.me-2
+          li.nav-item
             = button_to t('auth.github.login'), auth_request_path(assign_provider),
               data: { turbo: false},
               class: 'nav-link link-dark'
