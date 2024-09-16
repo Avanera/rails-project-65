@@ -1,0 +1,13 @@
+ru:
+  layouts:
+    hexlet_title: © Хекслет, %{year}
+    application:
+      title: Доска объявлений
+      footer: "%{year} Доска объявлений"
+    shared:
+      nav:
+        create_bulletin: Добавить
+        home_link: Доска объявлений
+        main: Главная
+        github_login: Войти с Github
+        log_out: Выход
