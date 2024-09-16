@@ -1,7 +1,7 @@
 nav class='container navbar navbar-expand-md d-flex py-2 border-bottom\
   fixed-top justify-content-between bg-white'
   a.navbar-brand.me-md-4[href="/"]
-    = t('layout.nav.home')
+    = t('.home_link')
 
   button.navbar-toggler [
     type='button'
@@ -21,11 +21,9 @@ nav class='container navbar navbar-expand-md d-flex py-2 border-bottom\
           li.nav-link.disabled
             = current_user.email
           li.nav-item
-            = link_to t('auth.log_out'), logout_path,
-              method: :delete,
-              class: 'btn'
+            = button_to t('.log_out'), logout_path, method: :delete, class: 'btn'
         - else
           li.nav-item
-            = button_to t('auth.github.login'), auth_request_path(assign_provider),
+            = button_to t('.github_login'), auth_request_path(assign_provider),
               data: { turbo: false},
               class: 'nav-link link-dark'
