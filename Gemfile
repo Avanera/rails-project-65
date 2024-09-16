@@ -47,6 +47,8 @@ gem 'omniauth-rails_csrf_protection'
 
 gem 'slim-rails'
 
+gem 'simple_form'
+
 # Add simple validations for active_storage gem
 gem 'active_storage_validations'
 # Helps you to get started building applications using AWS infrastructure services
