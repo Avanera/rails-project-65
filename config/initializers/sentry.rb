@@ -5,6 +5,8 @@ Sentry.init do |config|
     config.dsn = Rails.application.credentials.sentry_dsn
     config.breadcrumbs_logger = [ :active_support_logger, :http_logger ]
 
+    config.enabled_environments = %i[production]
+
     config.excluded_exceptions += [
       'ActionController::RoutingError',
       'ActionController::UnknownFormat',
