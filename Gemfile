@@ -47,6 +47,15 @@ gem 'omniauth-rails_csrf_protection'
 
 gem 'slim-rails'
 
+# Add simple validations for active_storage gem
+gem 'active_storage_validations'
+# Helps you to get started building applications using AWS infrastructure services
+gem 'aws-sdk-s3'
+# Adds file size and content type validations to ActiveModel
+gem 'file_validators'
+# Provides higher-level image processing helpers that r commonly needed when handling image uploads
+gem 'image_processing'
+
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
