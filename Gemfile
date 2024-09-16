@@ -57,6 +57,8 @@ gem 'aws-sdk-s3'
 gem 'file_validators'
 # Provides higher-level image processing helpers that r commonly needed when handling image uploads
 gem 'image_processing'
+# Pundit helps build a simple, scalable authorization system with Ruby classes and OOP patterns.
+gem 'pundit'
 
 
 group :development, :test do
