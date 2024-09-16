@@ -1,0 +1,23 @@
+h2 = @bulletin.title
+
+.row
+  .col-6
+    p
+      strong.me-2 = t('.description')
+      br
+      = @bulletin.description
+
+    p
+      strong.me-2 = t('.author')
+      br
+      = @bulletin.author.name
+
+  .col-6
+    - if @bulletin.image_attachment
+      = image_tag(@bulletin.image, class: 'img-fluid')
+
+hr
+
+.d-flex
+  = link_to t('.edit'), edit_bulletin_path(@bulletin), class: 'btn btn-outline-info me-1'
+  = link_to t('back'), :back, class: 'btn btn-outline-primary me-1'
