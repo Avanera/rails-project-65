@@ -16,4 +16,11 @@ class ApplicationController < ActionController::Base
   def user_signed_in?
     session[:user_id].present? && current_user.present?
   end
+
+  def authenticate_user!
+    return if user_signed_in?
+
+    flash[:alert] = t('.forbidden')
+    redirect_to root_path
+  end
 end
