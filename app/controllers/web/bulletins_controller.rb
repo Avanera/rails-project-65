@@ -13,27 +13,31 @@ class Web::BulletinsController < ApplicationController
 
   def new
     @bulletin = current_user.bulletins.build
+    authorize @bulletin
   end
 
   def edit
     @bulletin = Bulletin.find(params[:id])
+    authorize @bulletin
   end
 
   def create
     @bulletin = current_user.bulletins.build(bulletin_params)
-      if @bulletin.save
-        redirect_to root_path, notice: t('.success')
-      else
-        flash.now[:alert] = t('.failure')
-        render :new, status: :unprocessable_entity
-      end
+    authorize @bulletin
+    if @bulletin.save
+      redirect_to @bulletin, notice: t('.success')
+    else
+      flash.now[:alert] = t('.failure')
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def update
     @bulletin = Bulletin.find(params[:id])
+    authorize @bulletin
 
     if @bulletin.update(bulletin_params)
-      redirect_to root_path, notice: t('.success')
+      redirect_to @bulletin, notice: t('.success')
     else
       flash.now[:alert] = t('.failure')
       render :edit, status: :unprocessable_entity

@@ -5,6 +5,13 @@ Sentry.init do |config|
     config.dsn = Rails.application.credentials.sentry_dsn
     config.breadcrumbs_logger = [ :active_support_logger, :http_logger ]
 
+    config.excluded_exceptions += [
+      'ActionController::RoutingError',
+      'ActionController::UnknownFormat',
+      'ActiveRecord::RecordNotFound',
+      'Pundit::NotAuthorizedError'
+    ]
+
     # Set traces_sample_rate to 1.0 to capture 100%
     # of transactions for tracing.
     # We recommend adjusting this value in production.
