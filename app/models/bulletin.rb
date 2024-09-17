@@ -1,4 +1,6 @@
 class Bulletin < ApplicationRecord
+  include AASM
+
   MAX_IMAGE_SIZE_MB = 5
 
   belongs_to :category
@@ -13,4 +15,25 @@ class Bulletin < ApplicationRecord
             attached: true,
             size: { less_than: MAX_IMAGE_SIZE_MB.megabytes },
             content_type: [ 'image/png', 'image/jpg', 'image/jpeg' ]
+
+  aasm do
+    state :draft, initial: true
+    state :under_moderation, :published, :rejected, :archived
+
+    event :to_moderate do
+      transitions from: :draft, to: :under_moderation
+    end
+
+    event :reject do
+      transitions from: :under_moderation, to: :rejected
+    end
+
+    event :publish do
+      transitions from: :under_moderation, to: :published
+    end
+
+    event :archive do
+      transitions from: [ :draft, :under_moderation, :published, :rejected ], to: :archived
+    end
+  end
 end

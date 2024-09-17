@@ -59,6 +59,8 @@ gem 'file_validators'
 gem 'image_processing'
 # Pundit helps build a simple, scalable authorization system with Ruby classes and OOP patterns.
 gem 'pundit'
+# a library for adding finite state machines to Ruby classes.
+gem 'aasm'
 
 
 group :development, :test do
