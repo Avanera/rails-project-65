@@ -2,11 +2,18 @@ Rails.application.routes.draw do
   scope module: :web do
     root 'bulletins#index'
 
+    get 'profile', to: 'profile#index'
+
     post 'auth/:provider', to: 'auth#request', as: :auth_request
     get 'auth/:provider/callback', to: 'auth#callback', as: :callback_auth
     delete '/logout', to: 'auth#logout'
 
-    resources :bulletins, only: %i[index show new create edit update]
+    resources :bulletins, only: %i[index show new create edit update] do
+      member do
+        patch :to_moderate
+        patch :archive
+      end
+    end
 
     namespace 'admin' do
       root 'bulletins#index', filter: :under_moderation

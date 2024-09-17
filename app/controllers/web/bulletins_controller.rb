@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-class Web::BulletinsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create edit update to_moderation archive]
+class Web::BulletinsController < Web::ApplicationController
+  before_action :authenticate_user!, only: %i[new create edit update to_moderate archive]
 
   def index
     @bulletins = Bulletin.order(created_at: :desc)
@@ -44,10 +44,22 @@ class Web::BulletinsController < ApplicationController
     end
   end
 
-  def to_moderation
+  def to_moderate
+    @bulletin = Bulletin.find(params[:id])
+    if @bulletin.to_moderate!
+      redirect_to profile_path, notice: t('.success')
+    else
+      redirect_to profile_path, notice: t('.failure')
+    end
   end
 
   def archive
+    @bulletin = Bulletin.find(params[:id])
+    if @bulletin.archive!
+      redirect_to profile_path, notice: t('.success')
+    else
+      redirect_to profile_path, notice: t('.failure')
+    end
   end
 
   private
