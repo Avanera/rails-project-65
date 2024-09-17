@@ -36,4 +36,6 @@ class Bulletin < ApplicationRecord
       transitions from: [ :draft, :under_moderation, :published, :rejected ], to: :archived
     end
   end
+
+  scope :published_or_created_by, ->(author) { where(user_id: author.id) }
 end
