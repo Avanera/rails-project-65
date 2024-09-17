@@ -146,4 +146,24 @@ class Web::Admin::CategoriesControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to root_url
   end
+
+  test 'should destroy idle category when user is admin' do
+    category = categories(:two)
+    sign_in(@admin)
+
+    delete admin_category_url(category)
+
+    assert_nil Category.find_by(id: category.id)
+    assert_redirected_to admin_categories_url
+  end
+
+  test 'should not destroy category with bulletins' do
+    sign_in(@admin)
+
+    assert_no_difference 'Category.count' do
+      delete admin_category_url(@category)
+    end
+
+    assert_redirected_to admin_categories_url
+  end
 end
