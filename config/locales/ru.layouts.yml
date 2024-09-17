@@ -11,6 +11,7 @@ ru:
         main: Главная
         github_login: Войти с Github
         log_out: Выход
+        my_bulletins: Мои объявления
     web:
       admin:
         application:
@@ -26,3 +27,4 @@ ru:
             log_out: Выход
             user_mode: Режим пользователя
             categories: Категории
+            my_bulletins: Мои объявления

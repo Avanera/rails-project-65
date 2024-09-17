@@ -15,6 +15,11 @@ nav class='container navbar navbar-expand-md d-flex py-2 border-bottom\
   .collapse.navbar-collapse.justify-content-end id='navbarSupportedContent'
     .d-flex
       ul.nav
+        - if current_user
+          li.nav-item
+            = link_to t('.my_bulletins'),
+              profile_path,
+              class: 'nav-link link-dark'
         - if policy(Bulletin).create?
           li.nav-item
             = link_to t('.create_bulletin'),
