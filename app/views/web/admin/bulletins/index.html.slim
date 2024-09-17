@@ -1,0 +1,15 @@
+.mb-3
+  = link_to t('.categories'), admin_categories_path
+
+table.table.table-striped.table-hover
+  thead
+    tr
+      th{ scope = 'col' } #
+      th{ scope = 'col' } = t('.name')
+      th
+
+  tbody
+    - @bulletins.each_with_index do |bulletin, i|
+      tr
+        th{ scope = 'row' } = i + 1
+        td = bulletin.title

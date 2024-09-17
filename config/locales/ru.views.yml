@@ -26,15 +26,28 @@ ru:
         publish:
           success: Объявление успешно опубликовано!
           error: Объявление не было опубликовано!
+        index:
+          categories: Все категории
       categories:
         create:
           success: Категория успешно создана!
+        edit:
+          title: Редактировать
+        new:
+          title: Создать новую категорию
         destroy:
           success: Категория успешно удалена!
           error: Эта категория не может быть удалена!
+        form:
+          back: Назад
         index:
+          title: Категории
+          add: Добавить категорию
+          destroy: Удалить
+          destroy_confirmation: Вы уверены?
           categories: Категории
-          edit: Редактировать категорию
+          bulletins: Назад в объявления
+          edit: Редактировать
           new: Новая категория
         update:
           success: Категория успешно обновлена!
