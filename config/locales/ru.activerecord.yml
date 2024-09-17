@@ -47,3 +47,7 @@ ru:
               required: обязательна
             image:
               blank: обязательно
+        category:
+          attributes:
+            name:
+              too_short: слишком короткое

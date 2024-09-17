@@ -7,6 +7,18 @@ Rails.application.routes.draw do
     delete '/logout', to: 'auth#logout'
 
     resources :bulletins, only: %i[index show new create edit update]
+
+    namespace 'admin' do
+      root 'bulletins#index', filter: :under_moderation
+      resources :bulletins, only: :index do
+        member do
+          patch :publish
+          patch :reject
+          patch :archive
+        end
+      end
+      resources :categories, only: %i[index new create edit update destroy]
+    end
   end
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

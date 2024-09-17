@@ -1,13 +1,28 @@
 ru:
   layouts:
-    hexlet_title: © Хекслет, %{year}
     application:
       title: Доска объявлений
       footer: "%{year} Доска объявлений"
     shared:
       nav:
+        admin_panel: Админка
         create_bulletin: Добавить
         home_link: Доска объявлений
         main: Главная
         github_login: Войти с Github
         log_out: Выход
+    web:
+      admin:
+        application:
+          title: Админ-панель
+          footer: "%{year} Доска объявлений"
+        shared:
+          nav:
+            admin_panel: Админка
+            create_bulletin: Добавить
+            home_link: Доска объявлений
+            main: Главная
+            github_login: Войти с Github
+            log_out: Выход
+            user_mode: Режим пользователя
+            categories: Категории

@@ -1,0 +1,26 @@
+.mb-3
+  strong.me-4
+    = link_to t('.add'), new_admin_category_path, class: 'btn btn-info'
+  = link_to t('.bulletins'), admin_bulletins_path
+
+
+table.table.table-striped.table-hover
+  thead
+    tr
+      th{ scope = 'col' } #
+      th{ scope = 'col' } = t('.name')
+      th
+
+  tbody
+    - @categories.each_with_index do |category, i|
+      tr
+        th{ scope = 'row' } = i + 1
+        td = category.name
+        td
+          .btn-group
+            = button_to t('.edit'),
+              edit_admin_category_path(category), method: :get,
+              class: 'nav-link link-primary me-4'
+            = button_to t('.destroy'), admin_category_path(category),
+              method: :delete, confirm: t('.destroy_confirmation'),
+              class: 'nav-link link-danger'
