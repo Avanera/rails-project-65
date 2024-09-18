@@ -32,6 +32,7 @@ ru:
           all_bulletins: Все объявления
         search_form:
           reset: Сброс
+        list:
           title: Название
           state: Состояние
           date: Дата создания
@@ -40,6 +41,8 @@ ru:
           publish: Опубликовать
           reject: Отклонить
           archive: В архив
+          confirm_reject: Вы действительно хотите отклонить публикацию?
+          confirm_archive: Вы действительно хотите архивировать публикацию?
       categories:
         create:
           success: Категория успешно создана!
@@ -78,8 +81,6 @@ ru:
         failure: Объявление не было создано. Проверьте ошибки ниже.
       edit:
         title: Редактировать объявление
-      list:
-        title: Объявления
       moderation:
         title: Объявления на модерации
       new:
@@ -94,6 +95,8 @@ ru:
       update:
         success: Объявление успешно обновлено!
         failure: Объявление не обновлено. Проверьте ошибки ниже.
+      index:
+        title: Объявления
       search_form:
         reset: Сброс
     profile:
@@ -109,3 +112,4 @@ ru:
         edit: Редактировать
         to_moderate: На модерацию
         archive: В архив
+        confirm_archive: Вы действительно хотите отправить публикацию в архив?

@@ -1,4 +1,3 @@
-hr
 
 table.table.table-striped.table-hover
   thead
@@ -10,7 +9,7 @@ table.table.table-striped.table-hover
       th{ scope = 'col' } = t('.actions')
 
   tbody
-    - bulletins.each_with_index do |bulletin, i|
+    - @bulletins.each_with_index do |bulletin, i|
       tr
         th{ scope = 'row' } = i + 1
         td = bulletin.title
@@ -19,17 +18,24 @@ table.table.table-striped.table-hover
         td
           .btn-group
             = link_to t('.show'), bulletin_path(bulletin), class: 'me-2'
-            = link_to t('.edit'), edit_bulletin_path(bulletin), class: 'me-2'
 
-            - if bulletin.may_to_moderate?
-              = button_to t('.to_moderate'),
-                to_moderate_bulletin_path(bulletin),
+            - if bulletin.may_publish?
+              = button_to t('.publish'),
+                publish_admin_bulletin_path(bulletin),
                 method: :patch,
+                data: { turbo: false },
                 class: 'link-primary x-btn-link'
+
+            - if bulletin.may_reject?
+              = button_to t('.reject'),
+                reject_admin_bulletin_path(bulletin),
+                method: :patch,
+                data: { confirm: t('.confirm_reject'), turbo: false },
+                class: 'link-danger x-btn-link'
 
             - if bulletin.may_archive?
               = button_to t('.archive'),
-                archive_bulletin_path(bulletin),
+                archive_admin_bulletin_path(bulletin),
                 method: :patch,
-                data: { turbo_confirm: t('.confirm_archive') },
+                data: { confirm: t('.confirm_archive'), turbo: false },
                 class: 'link-danger x-btn-link'
