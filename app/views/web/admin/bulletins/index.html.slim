@@ -22,6 +22,7 @@ table.table.table-striped.table-hover
       th{ scope = 'col' } = t('.state')
       th{ scope = 'col' } = t('.date')
       th{ scope = 'col' } = t('.actions')
+= render 'search_form', bulletins: @bulletins
 
   tbody
     - @bulletins.each_with_index do |bulletin, i|

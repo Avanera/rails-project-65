@@ -4,7 +4,10 @@ class Web::BulletinsController < Web::ApplicationController
   before_action :authenticate_user!, only: %i[new create edit update to_moderate archive]
 
   def index
-    @bulletins = Bulletin.published.order(created_at: :desc)
+    @q = Bulletin.published.ransack(params[:q])
+    @q.sorts = 'created_at desc'
+    @bulletins = @q.result
+    @categories = Category.order(name: :asc)
   end
 
   def show

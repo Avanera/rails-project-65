@@ -54,8 +54,8 @@ SimpleForm.setup do |config|
 
     ## Inputs
     b.use :label, style: 'display: block;'
-    b.use :input, class: 'input', error_class: 'is-invalid', valid_class: 'is-valid'
-    b.use :hint,  wrap_with: { tag: :span, class: :hint }
+    b.use :input, class: 'form-control', error_class: 'is-invalid', valid_class: 'is-valid'
+    b.use :hint,  wrap_with: { tag: :span, class: 'x-hint small' }
     b.use :error, wrap_with: { tag: :span, class: :error }
 
     ## full_messages_for

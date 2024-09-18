@@ -28,6 +28,11 @@ ru:
         image: Изображение
         title: Заголовок
         state: Состояние
+        aasm_state/archived: В архиве
+        aasm_state/draft: Черновик
+        aasm_state/published: Опубликовано
+        aasm_state/rejected: Отклонено
+        aasm_state/under_moderation: На модерации
       bulletin/aasm_state:
         draft: Черновик
         published: Опубликовано

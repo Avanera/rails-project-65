@@ -4,6 +4,8 @@ class Web::ProfileController < Web::ApplicationController
   before_action :authenticate_user!
 
   def index
-    @bulletins = current_user.bulletins.order(created_at: :desc)
+    @q = current_user.bulletins.ransack(params[:q])
+    @q.sorts = 'created_at desc'
+    @bulletins = @q.result
   end
 end

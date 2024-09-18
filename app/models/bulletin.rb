@@ -38,4 +38,12 @@ class Bulletin < ApplicationRecord
   end
 
   scope :published_or_created_by, ->(author) { where(user_id: author.id) }
+
+  def self.ransackable_attributes(auth_object = nil)
+    [ 'aasm_state', 'title' ]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    [ 'category' ]
+  end
 end

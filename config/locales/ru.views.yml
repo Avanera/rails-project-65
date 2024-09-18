@@ -30,6 +30,8 @@ ru:
           categories: Все категории
           under_moderation: На модерации
           all_bulletins: Все объявления
+        search_form:
+          reset: Сброс
           title: Название
           state: Состояние
           date: Дата создания
@@ -92,6 +94,8 @@ ru:
       update:
         success: Объявление успешно обновлено!
         failure: Объявление не обновлено. Проверьте ошибки ниже.
+      search_form:
+        reset: Сброс
     profile:
       index:
         title: Мои Объявления

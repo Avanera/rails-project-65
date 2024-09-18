@@ -1,7 +1,9 @@
 class Web::Admin::BulletinsController < Web::Admin::ApplicationController
   def index
     filter = validated_filter
-    @bulletins = Bulletin.send(filter).order(created_at: :desc)
+    @q = Bulletin.send(filter).ransack(params[:q])
+    @q.sorts = 'created_at desc'
+    @bulletins = @q.result
   end
 
   def archive
