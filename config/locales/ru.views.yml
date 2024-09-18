@@ -28,6 +28,16 @@ ru:
           error: Объявление не было опубликовано!
         index:
           categories: Все категории
+          under_moderation: На модерации
+          all_bulletins: Все объявления
+          title: Название
+          state: Состояние
+          date: Дата создания
+          actions: Действия
+          show: Показать
+          publish: Опубликовать
+          reject: Отклонить
+          archive: В архив
       categories:
         create:
           success: Категория успешно создана!

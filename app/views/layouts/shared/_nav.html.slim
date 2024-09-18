@@ -29,7 +29,7 @@ nav class='container navbar navbar-expand-md d-flex py-2 border-bottom\
           - if current_user&.admin?
             li.nav-item
               = link_to t('.admin_panel'),
-                admin_root_path,
+                admin_path(filter: :under_moderation),
                 class: 'nav-link link-dark'
           li.nav-item
             = button_to t('.log_out'),

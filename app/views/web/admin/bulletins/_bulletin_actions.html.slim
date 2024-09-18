@@ -1,0 +1,17 @@
+= link_to t('.show'), bulletin,
+  class: 'me-2'
+
+- if bulletin.may_publish?
+  = link_to t('.publish'), publish_admin_bulletin_path(bulletin),
+    data: { turbo_method: :patch, turbo_confirm: t('.confirm.publish') },
+    class: 'me-2'
+
+- if bulletin.may_reject?
+  = link_to t('.reject'), reject_admin_bulletin_path(bulletin),
+    data: { turbo_method: :patch, turbo_confirm: t('.confirm.reject') },
+    class: 'me-2'
+
+- if bulletin.may_archive?
+= link_to t('.archive'), archive_admin_bulletin_path(bulletin),
+  data: { turbo_method: :patch, turbo_confirm: t('.confirm.archive') },
+  class: 'text-danger'
