@@ -61,7 +61,10 @@ gem 'image_processing'
 gem 'pundit'
 # a library for adding finite state machines to Ruby classes.
 gem 'aasm'
-
+# Ransack will help you easily add searching to your Rails application.
+gem 'ransack'
+# A Scope & Engine based paginator for modern web app frameworks and ORMs.
+gem 'kaminari'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
