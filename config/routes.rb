@@ -16,8 +16,8 @@ Rails.application.routes.draw do
     end
 
     namespace 'admin' do
-      root 'bulletins#index', filter: :under_moderation
-      resources :bulletins, only: :index do
+      get '/', to: 'bulletins#index'
+      resources :bulletins, only: [] do
         member do
           patch :publish
           patch :reject
