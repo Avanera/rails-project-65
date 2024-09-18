@@ -2,7 +2,7 @@ class Web::Admin::CategoriesController < Web::Admin::ApplicationController
   before_action :authorize_category
 
   def index
-    @categories = Category.order(name: :asc)
+    @categories = Category.order(name: :asc).page(params[:page])
   end
 
   def new

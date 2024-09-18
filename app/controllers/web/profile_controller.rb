@@ -6,6 +6,6 @@ class Web::ProfileController < Web::ApplicationController
   def index
     @q = current_user.bulletins.ransack(params[:q])
     @q.sorts = 'created_at desc'
-    @bulletins = @q.result
+    @bulletins = @q.result.page(params[:page])
   end
 end

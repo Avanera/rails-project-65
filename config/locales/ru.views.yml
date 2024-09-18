@@ -108,3 +108,10 @@ ru:
         to_moderate: На модерацию
         archive: В архив
         confirm_archive: Вы действительно хотите отправить публикацию в архив?
+  views:
+    pagination:
+      first: "&laquo"
+      last: "&raquo;"
+      next: "&rsaquo;"
+      previous: "&lsaquo;"
+      truncate: "&hellip;"

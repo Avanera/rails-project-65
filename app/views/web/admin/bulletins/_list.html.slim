@@ -9,7 +9,7 @@ table.table.table-striped.table-hover
       th{ scope = 'col' } = t('.actions')
 
   tbody
-    - @bulletins.each_with_index do |bulletin, i|
+    - bulletins.each_with_index do |bulletin, i|
       tr
         th{ scope = 'row' } = i + 1
         td = bulletin.title
@@ -39,3 +39,4 @@ table.table.table-striped.table-hover
                 method: :patch,
                 data: { confirm: t('.confirm_archive'), turbo: false },
                 class: 'link-danger x-btn-link'
+= paginate bulletins

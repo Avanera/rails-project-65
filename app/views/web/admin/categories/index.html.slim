@@ -23,3 +23,4 @@ table.table.table-striped.table-hover
             = button_to t('.destroy'), admin_category_path(category),
               method: :delete, confirm: t('.destroy_confirmation'),
               class: 'nav-link link-danger'
+= paginate @categories
