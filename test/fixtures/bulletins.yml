@@ -7,9 +7,9 @@ one:
   category: one
   state: published
 
-two:
+under_moderation:
   title: <%= Faker::Restaurant.name %>
   description: <%= Faker::Restaurant.description %>
   user: one
   category: one
-  state: published
+  state: under_moderation
