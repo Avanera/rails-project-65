@@ -1,6 +1,6 @@
 hr
   .px-3.pt-3.bg-light.mb-3
-    = search_form_for @q, url: profile_path do |f|
+    = search_form_for @q, url: admin_path do |f|
       .row
         .col-12.col-md-4
           = f.input :title_cont, label: false
@@ -11,8 +11,10 @@ hr
             label_method: :human_name,
             value_method: :name,
             label: false
+
+
         .col-12.col-md-4.d-flex.align-items-start.gap-2.gap-md-4.mb-3
           = f.button :submit, class: 'btn btn-primary flex-grow-1'
           = link_to t('.reset'),
-            profile_path,
+            admin_path,
             class: 'btn btn-outline-primary flex-grow-1'

@@ -1,7 +1,6 @@
 class Web::Admin::BulletinsController < Web::Admin::ApplicationController
   def index
-    filter = validated_filter
-    @q = Bulletin.send(filter).ransack(params[:q])
+    @q = Bulletin.ransack(params[:q])
     @q.sorts = 'created_at desc'
     @bulletins = @q.result
   end
@@ -30,18 +29,6 @@ class Web::Admin::BulletinsController < Web::Admin::ApplicationController
       redirect_to admin_path, notice: t('.success')
     else
       redirect_to admin_path, notice: t('.failure')
-    end
-  end
-
-  private
-
-  def validated_filter
-    permitted_values = [ 'all', 'under_moderation' ]
-
-    if permitted_values.include?(params[:filter])
-      params[:filter]
-    else
-      'under_moderation'
     end
   end
 end
