@@ -5,7 +5,7 @@ hr
         .col-12.col-md-4
           = f.input :title_cont, label: false
         .col-12.col-md-4
-          = f.input :aasm_state_eq,
+          = f.input :state_eq,
             as: :select,
             collection: Bulletin.aasm.states,
             label_method: :human_name,

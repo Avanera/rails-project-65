@@ -16,7 +16,7 @@ class Bulletin < ApplicationRecord
             size: { less_than: MAX_IMAGE_SIZE_MB.megabytes },
             content_type: [ 'image/png', 'image/jpg', 'image/jpeg' ]
 
-  aasm do
+  aasm column: :state do
     state :draft, initial: true
     state :under_moderation, :published, :rejected, :archived
 
@@ -40,7 +40,7 @@ class Bulletin < ApplicationRecord
   scope :published_or_created_by, ->(author) { where(user_id: author.id) }
 
   def self.ransackable_attributes(auth_object = nil)
-    [ 'aasm_state', 'title' ]
+    [ 'state', 'title' ]
   end
 
   def self.ransackable_associations(auth_object = nil)

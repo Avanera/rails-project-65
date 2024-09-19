@@ -5,11 +5,11 @@ one:
   description: <%= Faker::Restaurant.description %>
   author: one
   category: one
-  aasm_state: published
+  state: published
 
 two:
   title: <%= Faker::Restaurant.name %>
   description: <%= Faker::Restaurant.description %>
   author: one
   category: one
-  aasm_state: published
+  state: published

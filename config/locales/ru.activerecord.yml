@@ -2,18 +2,18 @@ ru:
   activerecord:
     attributes:
       bulletin:
-        aasm_state/archived: В архиве
-        aasm_state/draft: Черновик
-        aasm_state/published: Опубликовано
-        aasm_state/rejected: Отклонено
-        aasm_state/under_moderation: На модерации
         category: Категория
         created_at: Дата создания
         description: Описание
         image: Изображение
         state: Состояние
+        state/archived: В архиве
+        state/draft: Черновик
+        state/published: Опубликовано
+        state/rejected: Отклонено
+        state/under_moderation: На модерации
         title: Заголовок
-      bulletin/aasm_state:
+      bulletin/state:
         archived: В архиве
         draft: Черновик
         published: Опубликовано

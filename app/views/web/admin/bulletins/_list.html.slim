@@ -13,7 +13,7 @@ table.table.table-striped.table-hover
       tr
         th{ scope = 'row' } = i + 1
         td = bulletin.title
-        td = Bulletin.human_attribute_name("aasm_state.#{bulletin.aasm_state}")
+        td = Bulletin.human_attribute_name("state.#{bulletin.state}")
         td = time_ago_in_words(bulletin.created_at)
         td
           .btn-group

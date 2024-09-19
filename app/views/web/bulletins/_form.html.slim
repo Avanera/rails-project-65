@@ -8,7 +8,8 @@
     = f.association :category, collection: Category.order(name: :asc)
 
     - if bulletin.image.attached? && bulletin.image.attachment.blob.present? && bulletin.image.attachment.blob.persisted?
-      = image_tag bulletin.image.variant(resize_to_limit: [ 200, 100 ]), class: 'img-thumbnail mb-2'
+      = image_tag bulletin.image.variant(resize_to_limit: [ 200, 100 ]),
+        class: 'img-thumbnail mb-2'
     = f.input :image, as: :file, direct_upload: true
   .form-actions.mb-3
     = f.button :submit, class: 'mt-4 btn btn-primary'
