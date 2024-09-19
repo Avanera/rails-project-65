@@ -4,7 +4,7 @@ class Bulletin < ApplicationRecord
   MAX_IMAGE_SIZE_MB = 5
 
   belongs_to :category
-  belongs_to :author, class_name: 'User', foreign_key: 'user_id'
+  belongs_to :user
   has_one_attached :image do |attachable|
     attachable.variant :thumb, resize_to_limit: [ 200, 100 ]
   end
@@ -37,7 +37,7 @@ class Bulletin < ApplicationRecord
     end
   end
 
-  scope :published_or_created_by, ->(author) { where(user_id: author.id) }
+  scope :published_or_created_by, ->(user) { where(user_id: user.id) }
 
   def self.ransackable_attributes(auth_object = nil)
     [ 'state', 'title' ]

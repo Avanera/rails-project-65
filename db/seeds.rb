@@ -1,4 +1,5 @@
 MIN_BULLETINS_COUNT = 150
+MIN_USERS_COUNT = 1
 
 [
   'Недвижимость',
@@ -12,6 +13,15 @@ MIN_BULLETINS_COUNT = 150
   'Другое'
 ].each do |name|
   Category.find_or_create_by!(name:)
+end
+
+if User.count < MIN_USERS_COUNT
+  (MIN_USERS_COUNT - User.count).times do |i|
+    user = User.create(
+      name: Faker::Name.name,
+      email: Faker::Internet.email
+    )
+  end
 end
 
 if Bulletin.count < MIN_BULLETINS_COUNT

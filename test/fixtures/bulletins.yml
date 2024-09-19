@@ -3,13 +3,13 @@
 one:
   title: <%= Faker::Restaurant.name %>
   description: <%= Faker::Restaurant.description %>
-  author: one
+  user: one
   category: one
   state: published
 
 two:
   title: <%= Faker::Restaurant.name %>
   description: <%= Faker::Restaurant.description %>
-  author: one
+  user: one
   category: one
   state: published
