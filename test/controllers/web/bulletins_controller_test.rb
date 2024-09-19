@@ -99,4 +99,24 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     assert(@bulletin.description == @attrs[:description])
     assert_redirected_to bulletin_url(@bulletin)
   end
+
+  test 'should archive' do
+    sign_in users(:one)
+    bulletin = bulletins(:draft)
+
+    patch archive_bulletin_url(bulletin)
+
+    bulletin.reload
+    assert_equal('archived', bulletin.state)
+  end
+
+  test 'should to_moderate' do
+    sign_in users(:one)
+    bulletin = bulletins(:draft)
+
+    patch to_moderate_bulletin_url(bulletin)
+
+    bulletin.reload
+    assert_equal('under_moderation', bulletin.state)
+  end
 end

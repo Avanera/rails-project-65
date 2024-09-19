@@ -6,3 +6,21 @@ one_image_blob:
   byte_size: <%= File.size('test/fixtures/files/one.jpg') %>
   checksum: <%= Digest::MD5.file('test/fixtures/files/one.jpg').base64digest %>
   service_name: test
+
+two_image_blob:
+  key: v4oamgiiynwsjo85wg4suuqeoyrl
+  filename: two.jpg
+  content_type: image/jpg
+  metadata: '{"identified":true,"analyzed":true}'
+  byte_size: <%= File.size('test/fixtures/files/two.jpg') %>
+  checksum: <%= Digest::MD5.file('test/fixtures/files/two.jpg').base64digest %>
+  service_name: test
+
+three_image_blob:
+  key: 6womenriykvlpk9k8a1amvbnrl9r
+  filename: three.jpg
+  content_type: image/jpg
+  metadata: '{"identified":true,"analyzed":true}'
+  byte_size: <%= File.size('test/fixtures/files/three.jpg') %>
+  checksum: <%= Digest::MD5.file('test/fixtures/files/three.jpg').base64digest %>
+  service_name: test

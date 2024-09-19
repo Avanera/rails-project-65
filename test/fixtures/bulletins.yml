@@ -13,3 +13,10 @@ under_moderation:
   user: one
   category: one
   state: under_moderation
+
+draft:
+  title: <%= Faker::Restaurant.name %>
+  description: <%= Faker::Restaurant.description %>
+  user: one
+  category: one
+  state: draft
