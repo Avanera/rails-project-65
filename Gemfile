@@ -65,6 +65,8 @@ gem 'aasm'
 gem 'ransack'
 # A Scope & Engine based paginator for modern web app frameworks and ORMs.
 gem 'kaminari'
+# Faker is a library for generating fake data such as names, addresses, and phone numbers.
+gem 'faker'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
@@ -77,9 +79,6 @@ group :development, :test do
 
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem 'brakeman', require: false
-
-  # Faker is a library for generating fake data such as names, addresses, and phone numbers.
-  gem 'faker'
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem 'rubocop-rails-omakase', require: false
