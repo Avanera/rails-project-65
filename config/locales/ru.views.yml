@@ -1,65 +1,73 @@
 ru:
   actions:
-    create: Создать
     archive: В архив
     archive_confirmation: Вы подтверждаете архивацию?
-    edit: Редактировать
+    create: Создать
     delete: Удалить
     delete_confirmation: Вы подтверждаете удаление?
+    edit: Редактировать
     publish: Опубликовать
     reject: Отклонить
     show: Показать
     title: Действия
     to_moderate: На модерацию
   search:
-    reset: Сброс
     go: Поиск
+    reset: Сброс
+  views:
+    pagination:
+      first: "&laquo"
+      last: "&raquo;"
+      next: "&rsaquo;"
+      previous: "&lsaquo;"
+      truncate: "&hellip;"
   web:
     admin:
       bulletins:
         archive:
-          success: Объявление успешно отправлено в архив!
           error: Объявление не было отправлено в архив!
-        reject:
-          success: Объявление успешно отклонено!
-          error: Объявление не было отклонено!
-        publish:
-          success: Объявление успешно опубликовано!
-          error: Объявление не было опубликовано!
-        search_form:
-          reset: Сброс
+          success: Объявление успешно отправлено в архив!
         list:
-          title: Название
-          state: Состояние
-          date: Дата создания
           actions: Действия
-          show: Показать
+          archive: В архив
+          confirm_archive: Вы действительно хотите архивировать публикацию?
+          confirm_reject: Вы действительно хотите отклонить публикацию?
+          date: Дата создания
           publish: Опубликовать
           reject: Отклонить
-          archive: В архив
-          confirm_reject: Вы действительно хотите отклонить публикацию?
-          confirm_archive: Вы действительно хотите архивировать публикацию?
+          show: Показать
+          state: Состояние
+          title: Название
+        publish:
+          error: Объявление не было опубликовано!
+          success: Объявление успешно опубликовано!
+        reject:
+          error: Объявление не было отклонено!
+          success: Объявление успешно отклонено!
+        search_form:
+          reset: Сброс
       categories:
         create:
           success: Категория успешно создана!
+        destroy:
+          cant_delete_category: Невозможно удалить категорию со связанными публикациями
+          error: Эта категория не может быть удалена!
+          success: Категория успешно удалена!
         edit:
           title: Редактировать
-        new:
-          title: Создать новую категорию
-        destroy:
-          success: Категория успешно удалена!
-          error: Эта категория не может быть удалена!
-          cant_delete_category: Невозможно удалить категорию со связанными публикациями
         form:
           back: Назад
         index:
-          title: Категории
           add: Добавить категорию
+          categories: Категории
           destroy: Удалить
           destroy_confirmation: Вы уверены?
-          categories: Категории
           edit: Редактировать
+          name: Название
           new: Новая категория
+          title: Категории
+        new:
+          title: Создать новую категорию
         update:
           success: Категория успешно обновлена!
     auth:
@@ -69,49 +77,44 @@ ru:
         success: Вы успешно вышли из системы!
     bulletins:
       archive:
-        success: Объявление успешно отправлено в архив!
         failure: Объявление не было отправлено в архив!
+        success: Объявление успешно отправлено в архив!
       create:
-        success: Объявление успешно создано!
         failure: Объявление не было создано. Проверьте ошибки ниже.
+        success: Объявление успешно создано!
       edit:
         title: Редактировать объявление
+      index:
+        title: Объявления
       moderation:
         title: Объявления на модерации
       new:
         title: Создать объявление
+      search_form:
+        reset: Сброс
       show:
         author: Автор
         description: Описание
         edit: Редактировать
       to_moderate:
-        success: Объявление успешно отправлено на модерирование!
         failure: Объявление не было отправлено на модерирование!
+        success: Объявление успешно отправлено на модерирование!
       update:
-        success: Объявление успешно обновлено!
         failure: Объявление не обновлено. Проверьте ошибки ниже.
-      index:
-        title: Объявления
-      search_form:
-        reset: Сброс
+        success: Объявление успешно обновлено!
     profile:
       index:
-        title: Мои Объявления
         add_bulletin: Добавить объявление
+        title: Мои Объявления
       list:
-        title: Название
-        state: Состояние
-        date: Дата создания
         actions: Действия
-        show: Показать
-        edit: Редактировать
-        to_moderate: На модерацию
         archive: В архив
         confirm_archive: Вы действительно хотите отправить публикацию в архив?
-  views:
-    pagination:
-      first: "&laquo"
-      last: "&raquo;"
-      next: "&rsaquo;"
-      previous: "&lsaquo;"
-      truncate: "&hellip;"
+        date: Дата создания
+        edit: Редактировать
+        show: Показать
+        state: Состояние
+        title: Название
+        to_moderate: На модерацию
+      search_form:
+        reset: Сброс

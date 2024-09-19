@@ -10,17 +10,17 @@ ru:
         state_eq: Искать по состоянию объявления
         title_cont: Искать по названию объявления
     placeholders:
-      q:
-        category_id_eq: ''
-        aasm_state_eq: ''
-        title_cont: ''
       bulletin:
         category: Выберите категорию
         description: Введите тело объявления
         image: Выберите изображение
-        title: Введите заголовок
         state: Состояние
+        title: Введите заголовок
       category:
         name: Введите название категории
+      q:
+        aasm_state_eq: ''
+        category_id_eq: ''
+        title_cont: ''
     required:
       text: Поле обязательно для заполнения

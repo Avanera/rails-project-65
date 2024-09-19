@@ -1,9 +1,31 @@
 ru:
   activerecord:
+    attributes:
+      bulletin:
+        aasm_state/archived: В архиве
+        aasm_state/draft: Черновик
+        aasm_state/published: Опубликовано
+        aasm_state/rejected: Отклонено
+        aasm_state/under_moderation: На модерации
+        category: Категория
+        created_at: Дата создания
+        description: Описание
+        image: Изображение
+        state: Состояние
+        title: Заголовок
+      bulletin/aasm_state:
+        archived: В архиве
+        draft: Черновик
+        published: Опубликовано
+        rejected: Отклонено
+        under_moderation: На модерации
+      category:
+        id: ID
+        name: Название
     events:
       bulletin:
-        create: Создать
         archive: В архив
+        create: Создать
         edit: Редактировать
         publish: Опубликовать
         reject: Отменить
@@ -17,42 +39,20 @@ ru:
         one: категорию
         other: категории
       user: Пользователь
-    attributes:
-      category:
-        id: ID
-        name: Название
-      bulletin:
-        category: Категория
-        created_at: Дата создания
-        description: Описание
-        image: Изображение
-        title: Заголовок
-        state: Состояние
-        aasm_state/archived: В архиве
-        aasm_state/draft: Черновик
-        aasm_state/published: Опубликовано
-        aasm_state/rejected: Отклонено
-        aasm_state/under_moderation: На модерации
-      bulletin/aasm_state:
-        draft: Черновик
-        published: Опубликовано
-        archived: В архиве
-        rejected: Отклонено
-        under_moderation: На модерации
     errors:
       models:
         bulletin:
           attributes:
-            title:
-              blank: не может быть пустым
-              too_short: слишком короткий
+            category:
+              required: обязательна
             description:
               blank: не может быть пустым
               too_short: слишком короткий
-            category:
-              required: обязательна
             image:
               blank: обязательно
+            title:
+              blank: не может быть пустым
+              too_short: слишком короткий
         category:
           attributes:
             name:

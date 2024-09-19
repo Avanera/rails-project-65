@@ -1,34 +1,34 @@
 ru:
   layouts:
     application:
-      title: Доска объявлений
       footer: "%{year} Доска объявлений"
+      title: Доска объявлений
     shared:
       nav:
         admin_panel: Админка
         create_bulletin: Добавить
-        home_link: Доска объявлений
-        main: Главная
         github_login: Войти с Github
+        home_link: Доска объявлений
         log_out: Выход
+        main: Главная
         my_bulletins: Мои объявления
     web:
       admin:
         application:
-          title: Админ-панель
           footer: "%{year} Доска объявлений"
+          title: Админ-панель
         shared:
-          nav:
-            admin_panel: Админка
-            create_bulletin: Добавить
-            home_link: Доска объявлений
-            main: Главная
-            github_login: Войти с Github
-            log_out: Выход
-            user_mode: Режим пользователя
-            categories: Категории
-            my_bulletins: Мои объявления
           admin_buttons:
+            all_bulletins: Все объявления
             categories: Все категории
             under_moderation: На модерации
-            all_bulletins: Все объявления
+          nav:
+            admin_panel: Админка
+            categories: Категории
+            create_bulletin: Добавить
+            github_login: Войти с Github
+            home_link: Доска объявлений
+            log_out: Выход
+            main: Главная
+            my_bulletins: Мои объявления
+            user_mode: Режим пользователя
