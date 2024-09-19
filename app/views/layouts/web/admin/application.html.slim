@@ -18,7 +18,9 @@ html
     = Sentry.get_trace_propagation_meta.html_safe
   body
     = render 'layouts/web/admin/shared/nav'
+
     .container.mt-4.pt-5
+      = render 'layouts/web/admin/shared/admin_buttons'
       = render 'layouts/web/admin/shared/flash'
     .container
       = yield

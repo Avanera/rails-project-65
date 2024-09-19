@@ -28,3 +28,7 @@ ru:
             user_mode: Режим пользователя
             categories: Категории
             my_bulletins: Мои объявления
+          admin_buttons:
+            categories: Все категории
+            under_moderation: На модерации
+            all_bulletins: Все объявления

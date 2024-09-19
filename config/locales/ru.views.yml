@@ -26,10 +26,6 @@ ru:
         publish:
           success: Объявление успешно опубликовано!
           error: Объявление не было опубликовано!
-        index:
-          categories: Все категории
-          under_moderation: На модерации
-          all_bulletins: Все объявления
         search_form:
           reset: Сброс
         list:
@@ -62,7 +58,6 @@ ru:
           destroy: Удалить
           destroy_confirmation: Вы уверены?
           categories: Категории
-          bulletins: Назад в объявления
           edit: Редактировать
           new: Новая категория
         update:
