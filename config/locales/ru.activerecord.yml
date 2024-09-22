@@ -47,7 +47,7 @@ ru:
               required: обязательна
             description:
               blank: не может быть пустым
-              too_short: слишком короткий
+              too_short: слишком короткое
             image:
               blank: обязательно
             title:
@@ -57,3 +57,4 @@ ru:
           attributes:
             name:
               too_short: слишком короткое
+              blank: обязательно

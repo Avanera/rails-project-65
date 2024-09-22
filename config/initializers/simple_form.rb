@@ -56,7 +56,7 @@ SimpleForm.setup do |config|
     b.use :label, style: 'display: block;'
     b.use :input, class: 'form-control', error_class: 'is-invalid', valid_class: 'is-valid'
     b.use :hint,  wrap_with: { tag: :span, class: 'x-hint small' }
-    b.use :error, wrap_with: { tag: :span, class: :error }
+    b.use :full_error, wrap_with: { tag: :span, class: 'error invalid-feedback d-block' }
 
     ## full_messages_for
     # If you want to display the full error message for the attribute, you can
@@ -172,6 +172,6 @@ SimpleForm.setup do |config|
   # config.i18n_scope = 'simple_form'
 
   # Defines validation classes to the input_field. By default it's nil.
-  # config.input_field_valid_class = 'is-valid'
-  # config.input_field_error_class = 'is-invalid'
+  config.input_field_valid_class = 'is-valid'
+  config.input_field_error_class = 'is-invalid'
 end

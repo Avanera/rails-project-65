@@ -11,7 +11,7 @@ class Web::BulletinsController < Web::ApplicationController
   end
 
   def show
-    @bulletin = policy_scope(Bulletin).find(params[:id])
+    @bulletin = Bulletin.find(params[:id])
   end
 
   def new
