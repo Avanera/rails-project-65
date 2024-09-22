@@ -1,4 +1,4 @@
-class AddNotNullConstraintToBulletinsState < ActiveRecord::Migration[7.2]
+class AddNotNullConstraintToBulletinsState < ActiveRecord::Migration[7.1]
   def change
     if Bulletin.any?
       Bulletin.where(state: nil).update_all(state: 'draft')
