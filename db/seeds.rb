@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 MIN_BULLETINS_COUNT = 150
 MIN_USERS_COUNT = 1
 
@@ -16,8 +18,8 @@ MIN_USERS_COUNT = 1
 end
 
 if User.count < MIN_USERS_COUNT
-  (MIN_USERS_COUNT - User.count).times do |i|
-    user = User.create(
+  (MIN_USERS_COUNT - User.count).times do
+    User.create(
       name: Faker::Name.name,
       email: Faker::Internet.email
     )
@@ -25,9 +27,9 @@ if User.count < MIN_USERS_COUNT
 end
 
 if Bulletin.count < MIN_BULLETINS_COUNT
-  files = Dir[Rails.root.join('test/fixtures/files/*')]
+  files = Dir[Rails.root.glob('test/fixtures/files/*')]
 
-  (MIN_BULLETINS_COUNT - Bulletin.count).times do |i|
+  (MIN_BULLETINS_COUNT - Bulletin.count).times do
     bulletin = Bulletin.new(
       title: Faker::Food.dish,
       description: Faker::Food.description,

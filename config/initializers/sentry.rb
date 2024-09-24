@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-Sentry.init do |config|
+Sentry.init do |_config|
   Sentry.init do |config|
     config.dsn = Rails.application.credentials.sentry_dsn
-    config.breadcrumbs_logger = [ :active_support_logger, :http_logger ]
+    config.breadcrumbs_logger = %i[active_support_logger http_logger]
 
     config.enabled_environments = %i[production]
 
@@ -19,7 +19,7 @@ Sentry.init do |config|
     # We recommend adjusting this value in production.
     config.traces_sample_rate = 1.0
     # or
-    config.traces_sampler = lambda do |context|
+    config.traces_sampler = lambda do |_context|
       true
     end
     # Set profiles_sample_rate to profile 100%

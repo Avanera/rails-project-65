@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   scope module: :web do
     root 'bulletins#index'
@@ -17,7 +19,7 @@ Rails.application.routes.draw do
 
     namespace 'admin' do
       get '/', to: 'bulletins#index'
-      resources :bulletins, only: [ :index ] do
+      resources :bulletins, only: [:index] do
         member do
           patch :publish
           patch :reject

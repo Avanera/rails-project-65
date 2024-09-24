@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 Rails.application.config.middleware.use OmniAuth::Builder do
   provider :developer if Rails.env.development?
-  provider :github, ENV['GITHUB_CLIENT_ID'], ENV['GITHUB_CLIENT_SECRET'], scope: 'user'
+  provider :github, ENV.fetch('GITHUB_CLIENT_ID', nil), ENV.fetch('GITHUB_CLIENT_SECRET', nil), scope: 'user'
 end
 
 # OmniAuth::AuthenticityTokenProtection.default_options(key: "csrf.token", authenticity_param: "_csrf")
