@@ -21,4 +21,6 @@ hr
 .d-flex
   = link_to t('back'), :back, class: 'btn btn-outline-primary me-1'
   - if policy(@bulletin).update?
-    = link_to t('.edit'), edit_bulletin_path(@bulletin), class: 'btn btn-outline-info me-1'
+    = link_to t('.edit'),
+      edit_bulletin_path(@bulletin),
+      class: 'btn btn-outline-info me-1'
