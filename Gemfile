@@ -83,6 +83,7 @@ group :development, :test do
   gem 'brakeman', require: false
 
   gem 'rubocop-rails', require: false
+  gem 'slim_lint', require: false
 end
 
 group :development do
