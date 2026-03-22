@@ -1,22 +1,35 @@
 # frozen_string_literal: true
 
 module Web
-  class AuthController < Web::ApplicationController
-    def callback
-      @user = User.find_or_create_by(email: auth.info['email'], name: auth.info['name'])
-      session[:user_id] = @user.id if @user.persisted?
-      redirect_to root_path
+  class AuthController < ApplicationController
+    def request_oauth
+      # Этот метод просто инициирует OAuth редирект
+      # OmniAuth обработает это автоматически
+      redirect_to '/auth/github'
     end
 
-    def logout
-      session[:user_id] = nil
-      redirect_to root_path
+    def callback
+      auth_hash = request.env['omniauth.auth']
+      email = auth_hash[:info][:email].downcase
+      name = auth_hash[:info][:name]
+
+      user = find_or_create_user(email, name)
+
+      session[:user_id] = user.id
+      redirect_to root_path, notice: t('.success')
     end
 
     private
 
-    def auth
-      request.env['omniauth.auth']
+    def find_or_create_user(email, name)
+      user = User.find_or_initialize_by(email: email)
+
+      if user.new_record?
+        user.name = name
+        user.save!
+      end
+
+      user
     end
   end
 end

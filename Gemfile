@@ -2,12 +2,12 @@
 
 source 'https://rubygems.org'
 
+ruby '3.2.2'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem 'rails', '~> 7.1.3', '>= 7.1.3.2'
+gem 'rails', '~> 7.2.0'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
-# Use pg as the database for Active Record
-gem 'pg', '~> 1.1'
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '>= 5.0'
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
@@ -29,11 +29,6 @@ gem 'jbuilder'
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 
-# Sentry's Ruby SDK allows users to report messages, exceptions, and tracing events.
-gem 'sentry-rails'
-gem 'sentry-ruby'
-gem 'stackprof'
-
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[windows jruby]
 
@@ -43,47 +38,42 @@ gem 'bootsnap', require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
-# OmniAuth is a library that standardizes multi-provider authentication for web applications.
+# Error tracking
+gem 'rollbar'
+
+# Authentication
 gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
 
-gem 'slim-rails'
-
-gem 'simple_form'
-
-# Add simple validations for active_storage gem
-gem 'active_storage_validations'
-# Helps you to get started building applications using AWS infrastructure services
-gem 'aws-sdk-s3'
-# Adds file size and content type validations to ActiveModel
-gem 'file_validators'
-# Provides higher-level image processing helpers that r commonly needed when handling image uploads
-gem 'image_processing'
-# Pundit helps build a simple, scalable authorization system with Ruby classes and OOP patterns.
+# Authorization
 gem 'pundit'
-# a library for adding finite state machines to Ruby classes.
+
+# State machine for bulletins
 gem 'aasm'
-# Ransack will help you easily add searching to your Rails application.
-gem 'ransack'
-# A Scope & Engine based paginator for modern web app frameworks and ORMs.
+
+# Search and pagination
 gem 'kaminari'
-# Faker is a library for generating fake data such as names, addresses, and phone numbers.
-gem 'faker'
+gem 'ransack'
 
 group :development, :test do
-  # Use sqlite3 as the database for Active Record
+  # Use sqlite3 in development and test
   gem 'sqlite3', '>= 1.4'
 
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri windows], require: 'debug/prelude'
 
-  gem 'dotenv-rails'
-
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem 'brakeman', require: false
 
+  # Environment variables
+  gem 'dotenv-rails', '~> 3.2'
+
+  # Linters
+  gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
-  gem 'slim_lint', require: false
+
+  # Fix minitest compatibility with Rails 7.2
+  gem 'minitest', '~> 5.15'
 end
 
 group :development do
@@ -94,5 +84,11 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
+  gem 'rubocop-capybara', '~> 2.22', require: false
   gem 'selenium-webdriver'
+end
+
+group :production do
+  # Use PostgreSQL in production (for Render)
+  gem 'pg'
 end

@@ -1,91 +1,191 @@
 ru:
-  app_name: Доска объявлений
-  auth:
-    github:
-      login: Войти с Github
-    logout: Выйти
-  back: Назад
-  datetime:
-    distance_in_words:
-      about_x_hours:
-        one: около %{count} часа
-        few: около %{count} часов
-        many: около %{count} часов
-        other: около %{count} часов
-      about_x_months:
-        one: около %{count} месяца
-        few: около %{count} месяцев
-        many: около %{count} месяцев
-        other: около %{count} месяцев
-      about_x_years:
-        one: около %{count} года
-        few: около %{count} лет
-        many: около %{count} лет
-        other: около %{count} лет
-      almost_x_years:
-        one: почти %{count} год
-        few: почти %{count} года
-        many: почти %{count} лет
-        other: почти %{count} лет
-      half_a_minute: полминуты
-      less_than_x_seconds:
-        one: меньше %{count} секунды
-        few: меньше %{count} секунд
-        many: меньше %{count} секунд
-        other: меньше %{count} секунд
-      less_than_x_minutes:
-        one: меньше %{count} минуты
-        few: меньше %{count} минут
-        many: меньше %{count} минут
-        other: меньше %{count} минут
-      over_x_years:
-        one: больше %{count} года
-        few: больше %{count} лет
-        many: больше %{count} лет
-        other: больше %{count} лет
-      x_seconds:
-        one: "%{count} секунда"
-        few: "%{count} секунды"
-        many: "%{count} секунд"
-        other: "%{count} секунд"
-      x_minutes:
-        one: "%{count} минута"
-        few: "%{count} минуты"
-        many: "%{count} минут"
-        other: "%{count} минут"
-      x_days:
-        one: "%{count} день"
-        few: "%{count} дня"
-        many: "%{count} дней"
-        other: "%{count} дней"
-      x_months:
-        one: "%{count} месяц"
-        few: "%{count} месяца"
-        many: "%{count} месяцев"
-        other: "%{count} месяцев"
-      x_years:
-        one: "%{count} год"
-        few: "%{count} года"
-        many: "%{count} лет"
-        other: "%{count} лет"
-  destroy_confirmation: Вы уверены?
-  flashes:
-    not_authorized: Вы не авторизованы для этой операции.
-    not_logged_in: Для выполнения операции необходимо войти в систему.
-  helpers:
-    submit:
-      bulletin:
-        create: Создать
-        update: Редактировать
-      category:
-        create: Добавить категорию
-        update: Сохранить изменения
-    page_entries_info:
-      more_pages:
-        display_entries: "Показана %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> из <b>%{total}</b>"
-      one_page:
-        display_entries:
-          few: "Показаны <b>%{count}</b> %{entry_name}"
-          many: "Показаны <b>%{count}</b> %{entry_name}"
-          one: "Показано <b>%{count}</b> %{entry_name}"
-          other: "Показаны <b>все %{count}</b> %{entry_name}"
+  time:
+    formats:
+      long: "%d %B %Y %H:%M"
+      short: "%d.%m.%Y"
+  
+  date:
+    formats:
+      long: "%d %B %Y"
+      short: "%d.%m.%Y"
+
+  common:
+    please_login: "Пожалуйста, войдите на сайт"
+    back: "Назад"
+    edit: "Редактировать"
+    delete: "Удалить"
+    confirm: "Вы уверены?"
+  
+  activerecord:
+    errors:
+      models:
+        bulletin:
+          attributes:
+            image:
+              too_big: "не должно превышать 5 МБ"
+  
+  admin:
+    base:
+      not_authorized: "У вас нет прав для доступа к этой странице"
+    
+    categories:
+      create:
+        success: "Категория создана"
+      update:
+        success: "Категория обновлена"
+      destroy:
+        success: "Категория удалена"
+      new:
+        title: "Новая категория"
+        name: "Название категории"
+        submit: "Создать"
+        cancel: "Отмена"
+      edit:
+        title: "Редактирование категории"
+        name: "Название категории"
+        submit: "Сохранить"
+        cancel: "Отмена"
+      index:
+        title: "Управление категориями"
+        new_category: "Добавить категорию"
+        name: "Название"
+        created_at: "Дата создания"
+        actions: "Действия"
+        edit: "Редактировать"
+        delete: "Удалить"
+        confirm_delete: "Вы уверены, что хотите удалить категорию?"
+      
+    bulletins:
+      create:
+        success: "Объявление создано"
+      update:
+        success: "Объявление обновлено"
+      destroy:
+        success: "Объявление удалено"
+      index:
+        title: "Управление объявлениями"
+        title_field: "Заголовок"
+        user: "Пользователь"
+        category: "Категория"
+        created_at: "Дата"
+        actions: "Действия"
+        view: "Просмотр"
+        edit: "Ред."
+        delete: "Удалить"
+        confirm_delete: "Вы уверены?"
+      show:
+        description: "Описание"
+        author: "Автор"
+        created_at: "Дата публикации"
+        back: "← Назад к списку"
+        edit: "Редактировать"
+        delete: "Удалить"
+        confirm_delete: "Вы уверены?"
+      edit:
+        title: "Редактирование объявления"
+        title_field: "Заголовок"
+        description: "Описание"
+        category: "Категория"
+        current_image: "Текущее изображение"
+        image: "Изображение"
+        image_hint: "Максимум 5 МБ"
+        submit: "Сохранить"
+        cancel: "Отмена"
+      publish:
+        success: "Объявление опубликовано"
+        failure: "Не удалось опубликовать объявление"
+      reject:
+        success: "Объявление отклонено"
+        failure: "Не удалось отклонить объявление"
+      archive:
+        success: "Объявление отправлено в архив"
+        failure: "Не удалось отправить объявление в архив"
+      
+    users:
+      update:
+        success: "Пользователь обновлен"
+      index:
+        title: "Управление пользователями"
+        name: "Имя"
+        email: "Email"
+        admin: "Администратор"
+        created_at: "Дата регистрации"
+        actions: "Действия"
+        edit: "Ред."
+        yes: "Да"
+        no: "Нет"
+      edit:
+        title: "Редактирование пользователя"
+        name: "Имя"
+        email: "Email"
+        admin_status: "Права администратора"
+        save: "Сохранить"
+        cancel: "Отмена"
+
+  web:
+    home:
+      index:
+        welcome: "Добро пожаловать на доску объявлений!"
+        description: "Здесь вы можете размещать и находить различные объявления"
+        view_all: "Смотреть все объявления"
+        create_bulletin: "Подать объявление"
+    
+    bulletins:
+      index:
+        title: "Все объявления"
+        new_bulletin: "Подать объявление"
+        no_bulletins: "Пока нет объявлений"
+      
+      show:
+        back: "← Назад к объявлениям"
+        author: "Автор"
+        category: "Категория"
+        created_at: "Дата публикации"
+      
+      new:
+        title: "Новое объявление"
+        submit: "Создать объявление"
+      
+      create:
+        success: "Объявление успешно создано"
+        failure: "Ошибка при создании объявления"
+      
+      to_moderate:
+        success: "Объявление отправлено на модерацию"
+        failure: "Не удалось отправить объявление на модерацию"
+      
+      archive:
+        success: "Объявление отправлено в архив"
+        failure: "Не удалось отправить объявление в архив"
+    
+    profiles:
+      show:
+        title: "Мои объявления"
+        new_bulletin: "Создать объявление"
+        no_bulletins: "У вас пока нет объявлений"
+        create_first: "Создать первое объявление"
+        statuses:
+          draft: "Черновик"
+          under_moderation: "На модерации"
+          published: "Опубликовано"
+          rejected: "Отклонено"
+          archived: "В архиве"
+        actions:
+          to_moderate: "На модерацию"
+          archive: "В архив"
+    
+    auth:
+      callback:
+        success: "Вы успешно вошли на сайт"
+      
+      logout:
+        success: "Вы вышли из системы"
+
+  views:
+    pagination:
+      first: "&laquo; Первая"
+      last: "Последняя &raquo;"
+      previous: "&lsaquo; Предыдущая"
+      next: "Следующая &rsaquo;"
+      truncate: "&hellip;"
+      

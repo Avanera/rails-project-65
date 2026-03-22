@@ -1,23 +1,26 @@
 databases:
-  - name: rails_project_65
-    databaseName: rails_project_65_production
-    user: rails_project_65
+  - name: bulletin-board-db
+    databaseName: bulletin_board_production
+    user: bulletin_board_user
+    region: frankfurt
     plan: free
 
 services:
   - type: web
-    name: rails_project_65
+    name: bulletin-board
     runtime: ruby
+    region: frankfurt
     plan: free
     buildCommand: "./bin/render-build.sh"
-    # preDeployCommand: "bundle exec rails db:migrate" # preDeployCommand only available on paid instance types
-    startCommand: "bundle exec rails server"
+    startCommand: "./bin/render-start.sh"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: rails_project_65
+          name: bulletin-board-db
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
-      - key: WEB_CONCURRENCY
-        value: 2 # sensible default
+      - key: ROLLBAR_ACCESS_TOKEN
+        sync: false
+      - key: RUBY_VERSION
+        value: 3.2.2

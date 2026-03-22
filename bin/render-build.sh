@@ -2,13 +2,13 @@
 # exit on error
 set -o errexit
 
+# Устанавливаем зависимости
 bundle install
+yarn install
+
+# Компилируем ассеты
 bundle exec rails assets:precompile
 bundle exec rails assets:clean
 
-# If you're using a Free instance type, you need to
-# perform database migrations in the build command.
-# Uncomment the following line:
-
+# Выполняем миграции
 bundle exec rails db:migrate
-bundle exec rails db:seed

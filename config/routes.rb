@@ -1,40 +1,44 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  scope module: :web do
-    root 'bulletins#index'
+  # Корневой маршрут - главная страница
+  root 'web/home#index'
 
-    get 'profile', to: 'profile#index'
-
-    post 'auth/:provider', to: 'auth#request', as: :auth_request
-    get 'auth/:provider/callback', to: 'auth#callback', as: :callback_auth
-    delete '/logout', to: 'auth#logout'
-
-    resources :bulletins, only: %i[index show new create edit update] do
+  # Все контроллеры в скоупе web
+  scope module: 'web' do
+    # Ресурс bulletins
+    resources :bulletins, only: [:index, :show, :new, :create] do
       member do
         patch :to_moderate
         patch :archive
       end
     end
 
-    namespace 'admin' do
-      get '/', to: 'bulletins#index'
-      resources :bulletins, only: [:index] do
-        member do
-          patch :publish
-          patch :reject
-          patch :archive
-        end
-      end
-      resources :categories, only: %i[index new create edit update destroy]
-    end
+    # Profile
+    resource :profile, only: :show
+
+    # Auth routes
+    post 'auth/:provider', to: 'auth#request', as: :auth_request
+    get 'auth/:provider/callback', to: 'auth#callback', as: :callback_auth
   end
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get 'up' => 'rails/health#show', as: :rails_health_check
+  # Админ-панель
+  namespace :admin do
+    resources :categories
+    resources :bulletins, only: [:index, :show, :edit, :update, :destroy] do
+      member do
+        patch :publish
+        patch :reject
+        patch :archive
+      end
+    end
+    resources :users, only: [:index, :edit, :update]
+  end
 
-  # Render dynamic PWA files from app/views/pwa/*
-  get 'service-worker' => 'rails/pwa#service_worker', as: :pwa_service_worker
-  get 'manifest' => 'rails/pwa#manifest', as: :pwa_manifest
+  # Reveal health status on /up
+  get "up" => "rails/health#show", as: :rails_health_check
+
+  # PWA routes
+  get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
+  get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 end

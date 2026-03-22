@@ -1,22 +1,21 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  title: <%= Faker::Restaurant.name %>
-  description: <%= Faker::Restaurant.description %>
+# test/fixtures/bulletins.yml
+car_for_sale:
+  title: Продам Toyota Camry
+  description: Отличный автомобиль, 2020 года, в хорошем состоянии
   user: one
-  category: one
-  state: published
+  category: cars
+  created_at: <%= 1.day.ago %>
 
-under_moderation:
-  title: <%= Faker::Restaurant.name %>
-  description: <%= Faker::Restaurant.description %>
-  user: one
-  category: one
-  state: under_moderation
+iphone:
+  title: iPhone 14 Pro Max
+  description: Новый, в упаковке, гарантия
+  user: two
+  category: electronics
+  created_at: <%= 2.days.ago %>
 
-draft:
-  title: <%= Faker::Restaurant.name %>
-  description: <%= Faker::Restaurant.description %>
+job_vacancy:
+  title: Требуется Ruby разработчик
+  description: Удаленная работа, гибкий график
   user: one
-  category: one
-  state: draft
+  category: jobs
+  created_at: <%= 3.days.ago %>

@@ -1,50 +1,23 @@
 # frozen_string_literal: true
 
 class BulletinPolicy < ApplicationPolicy
-  class Scope
-    def initialize(user, scope)
-      @user  = user
-      @scope = scope
-    end
-
-    def resolve
-      if !user
-        scope.published
-      elsif user.admin?
-        scope.all
-      else
-        scope.published_or_created_by(user)
-      end
-    end
-
-    private
-
-    attr_reader :user, :scope
+  def index?
+    user.admin?
   end
 
-  def new?
-    user
-  end
-
-  def create?
-    new?
+  def show?
+    user.admin?
   end
 
   def edit?
-    admin? || author?
+    user.admin? || record.user == user
   end
 
   def update?
-    edit?
+    user.admin? || record.user == user
   end
 
-  private
-
-  def author?
-    record.user == user
-  end
-
-  def admin?
-    user&.admin?
+  def destroy?
+    user.admin?
   end
 end
